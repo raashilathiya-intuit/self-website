@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GenAI Studio · Raashi Lathiya</title>
+<meta name="description" content="GenAI Studio is a password-protected case study, shared on request.">
+<link rel="stylesheet" href="../styles.css?v=3">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%230c0d10%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-family=%27Menlo,monospace%27 font-size=%2734%27 fill=%27%237ee0b8%27 text-anchor=%27middle%27%3ER%3C/text%3E%3C/svg%3E">
+<style>
+.gate-wrap { max-width: 480px; margin: 100px auto 90px; padding: 0 28px; }
+.gate {
+  background: var(--bg-2);
+  border: 1px solid var(--line-2);
+  border-radius: 14px;
+  padding: 38px 34px;
+}
+.gate .glabel {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--signal);
+  margin-bottom: 16px;
+}
+.gate .glabel::before { content: "// "; color: var(--muted); }
+.gate h1 { font-size: 24px; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 10px; color: var(--ink); }
+.gate p.sub { font-size: 15px; color: var(--ink-soft); line-height: 1.65; margin: 0 0 22px; }
+.gate .row { display: flex; gap: 8px; }
+.gate input {
+  flex: 1; min-width: 0;
+  font-family: var(--mono); font-size: 14px;
+  padding: 10px 14px;
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--ink);
+  outline: none;
+}
+.gate input:focus { border-color: var(--signal); }
+.gate button {
+  font-family: var(--mono); font-size: 13px; font-weight: 600;
+  padding: 10px 18px;
+  border: 1px solid var(--signal);
+  border-radius: 8px;
+  background: var(--signal); color: var(--bg);
+  cursor: pointer;
+}
+.gate button:disabled { opacity: 0.6; cursor: default; }
+.gate .err { display: none; font-family: var(--mono); color: #ff8a8a; font-size: 12.5px; margin: 12px 0 0; }
+.gate .links { margin-top: 22px; font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
+.gate .links a { color: var(--signal); text-decoration: none; }
+.gate .links a:hover { text-decoration: underline; }
+.gate .links .sep { margin: 0 8px; }
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <div class="inner">
+    <a href="../index.html" class="id">raashi.lathiya <span class="dim">/ product designer</span></a>
+    <nav>
+      <a href="../index.html" class="active">work</a>
+      <a href="../about.html">about</a>
+      <a href="../contact.html">contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="gate-wrap">
+  <div class="gate">
+    <div class="glabel">access: password</div>
+    <h1>GenAI Studio is locked.</h1>
+    <p class="sub">This case study is shared on request. Enter the password and the full story decrypts right here, in your browser.</p>
+    <div class="row">
+      <input id="pw" type="password" placeholder="password" autocomplete="off" aria-label="Password">
+      <button id="go" type="button">unlock</button>
+    </div>
+    <p class="err" id="err">decrypt failed. check the password and try again.</p>
+    <p class="links">
+      <a href="mailto:raashilathiya@gmail.com?subject=GenAI%20Studio%20case%20study%20access">request access</a>
+      <span class="sep">·</span>
+      <a href="../index.html">back to work</a>
+    </p>
+  </div>
+</div>
+
+<script>
+const ENC = { salt: "__SALT__", iv: "__IV__", data: "__DATA__", iter: __ITER__ };
+const b2u = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+async function unlock(pw) {
+  try {
+    const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
+    const key = await crypto.subtle.deriveKey(
+      { name: 'PBKDF2', salt: b2u(ENC.salt), iterations: ENC.iter, hash: 'SHA-256' },
+      base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+    const pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b2u(ENC.iv) }, key, b2u(ENC.data));
+    const html = new TextDecoder().decode(pt);
+    try { sessionStorage.setItem('gs-key', pw); } catch (e) {}
+    document.open(); document.write(html); document.close();
+    return true;
+  } catch (e) { return false; }
+}
+async function submitPw() {
+  const field = document.getElementById('pw');
+  const pw = field.value.trim();
+  if (!pw) { field.focus(); return; }
+  const btn = document.getElementById('go');
+  btn.disabled = true;
+  const ok = await unlock(pw);
+  if (!ok) {
+    btn.disabled = false;
+    document.getElementById('err').style.display = 'block';
+    field.value = '';
+    field.focus();
+  }
+}
+window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('go').addEventListener('click', submitPw);
+  document.getElementById('pw').addEventListener('keydown', e => { if (e.key === 'Enter') submitPw(); });
+  try { const saved = sessionStorage.getItem('gs-key'); if (saved) unlock(saved); } catch (e) {}
+  document.getElementById('pw').focus();
+});
+</script>
+
+</body>
+</html>

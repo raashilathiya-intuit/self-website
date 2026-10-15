@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UI Convergence × Claude Code · Raashi Lathiya</title>
+<meta name="description" content="A Figma-to-code design system paired with a Claude workflow that redesigns legacy screens from a screenshot.">
+<link rel="stylesheet" href="../styles.css?v=3">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%230c0d10%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-family=%27Menlo,monospace%27 font-size=%2734%27 font-weight=%27700%27 fill=%27%237ee0b8%27 text-anchor=%27middle%27%3ER%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="hd">
+  <div class="inner">
+    <a href="../index.html" class="id">raashi.lathiya<span class="dim"> / product designer</span></a>
+    <nav>
+      <a href="../index.html" class="active">work</a>
+      <a href="../about.html">about</a>
+      <a href="../contact.html">contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="cs-top">
+  <div class="wrap">
+    <div class="tag">CS-02 · design system · ai-native workflow · intuit</div>
+    <h1>UI Convergence × Claude Code</h1>
+    <p class="lede">
+      From many legacy UIs to one converged system, in minutes. A Figma-to-code
+      design system for Intuit's Marketing Studio, paired with a Claude workflow
+      that redesigns legacy tool screens against it from a screenshot. How I
+      designed the system, taught Claude to work inside it, and shipped Wave 1.
+    </p>
+    <div class="spec">
+      <div class="cell"><div class="k">type</div><div class="v">Design system, AI-native workflow</div></div>
+      <div class="cell"><div class="k">timeline</div><div class="v">1 week (Wave 1)</div></div>
+      <div class="cell"><div class="k">team</div><div class="v">1 designer (me), Claude as build and audit partner</div></div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="panel" style="margin:0;">
+      <div class="p-head">in brief</div>
+      <p><strong>The problem:</strong> one product stitched from legacy tools, where the same Button resolves to a different pixel in every one. Converging by hand costs person-decades.</p>
+      <p><strong>What I built:</strong> a Figma-to-code design system plus 17 Claude skills, so a screenshot of a legacy screen becomes a real, token-faithful React screen in minutes.</p>
+      <p><strong>The result:</strong> 30+ components, 42+ surfaces redesigned by pattern, Wave 1 shipped in one week.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap">
+    <div class="figure"><div><span class="cap">hero visual, swap in later</span>legacy ui to converged ui</div></div>
+    <div class="spec">
+      <div class="cell"><div class="k">components</div><div class="v big">30+</div><div class="note">Atoms, molecules, organisms shipped in Wave 1</div></div>
+      <div class="cell"><div class="k">surfaces</div><div class="v big">42+</div><div class="note">Landing surfaces redesigned by pattern</div></div>
+      <div class="cell"><div class="k">claude skills</div><div class="v big">17</div><div class="note">Custom skills authored to enforce the system</div></div>
+      <div class="cell"><div class="k">design-to-mockup</div><div class="v big">days → mins</div><div class="note">Time collapsed</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head"><span class="n">01</span> the problem</div>
+    <h2 class="h-sec">The product is converged. Its widgets aren't.</h2>
+    <div class="prose">
+      <p>Marketing Studio is stitched together from a long tail of legacy tools. Each routes through one of several internal design systems. Each system carries its own themes. Each theme defines hundreds of tokens, plus a "Custom" escape hatch where teams hand-roll hex. <strong>The same Button resolves to a different pixel in every tool.</strong></p>
+    </div>
+    <div class="cols" style="margin-top:26px;">
+      <div class="panel" style="margin:0;">
+        <div class="p-head">component scale: one button</div>
+        <p>5 variants × 6 states × 3 sizes × 3 icon placements × 6 themes</p>
+        <p class="ok">= 1,620 permutations ≈ ~1.9 person-years per button</p>
+      </div>
+      <div class="panel" style="margin:0;">
+        <div class="p-head">library scale: one library, one theme</div>
+        <p>54 components × 240 tokens × 48 screens × 18 elements per page</p>
+        <p class="ok">= 11,197,440 mapping points ≈ ~1,120 person-years</p>
+      </div>
+    </div>
+    <div class="prose" style="margin-top:22px;">
+      <p style="font-size:14px;color:var(--muted);">Each mapping point is touched by three activities (design and map, publish, QC), each by a designer-developer pair, at roughly 2 minutes per touch. Normalised to 8-hour days, 250 working days a year. This is the surface UI Convergence had to compress.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head"><span class="n">02</span> the decision</div>
+    <h2 class="h-sec">Three options. One bet.</h2>
+    <ol class="log">
+      <li><span class="lg-k">option 1</span><h3>Update existing widget styles in place, by hand</h3><p>Sunk cost. Deprecated when V2.0 lands.</p></li>
+      <li><span class="lg-k">option 2 · chosen</span><h3>New design system + agent loop (UI Convergence)</h3><p>The bridge. Months instead of person-decades. Only affordable because of the agent loop; without it, this collapses back into option 1's cost.</p></li>
+      <li><span class="lg-k">option 3</span><h3>Wait for Studio V2.0 (full rewrite, native AI)</h3><p>Right destination, not shippable today.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head"><span class="n">03</span> what i built</div>
+    <h2 class="h-sec">A system, a library, and a loop</h2>
+    <ol class="log">
+      <li><span class="lg-k">figma</span><h3>Foundation</h3><p>Tokens (color, type, spacing, radius, elevation), components with bound variables and explicit variants, page templates. Authored on demand as new screens surfaced needs.</p></li>
+      <li><span class="lg-k">react</span><h3>Library</h3><p>A 1:1 implementation in CSS Modules. Every CSS rule resolves to a token. A docs site, a Playground app, and the docs site mirrors the Playground through a shared alias.</p></li>
+      <li><span class="lg-k">skills</span><h3>The AI workflow</h3><p>Each class of failure became a named, enforceable skill. 17 in total: figma-parity and token-lookup as blocking gates, accuracy-pass and screen-audit as exit checks, playground-compose to orchestrate end to end.</p></li>
+      <li><span class="lg-k">loop</span><h3>Screenshot in, production screen out</h3><p>Paste a screenshot of a legacy tool. Claude locates the Target State in Figma, inventories components, flags missing ones, composes the screen, and runs the parity audits. The output is a real React screen in the Playground.</p></li>
+    </ol>
+    <div class="figure"><div><span class="cap">diagram, swap in later</span>how the loop works: screenshot to composed screen to parity audit</div></div>
+    <div class="figure-2">
+      <div class="figure"><div><span class="cap">screenshot</span>legacy tool ui</div></div>
+      <div class="figure"><div><span class="cap">screenshot</span>converged ui</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head"><span class="n">04</span> key decisions</div>
+    <h2 class="h-sec">The bets that made the system work</h2>
+    <ol class="log">
+      <li><span class="lg-k">bet 01</span><h3>Build the bridge, not the destination</h3><p>UI Convergence is deliberately the middle option. It compresses person-decades into months while V2.0 takes the time it needs.</p></li>
+      <li><span class="lg-k">bet 02</span><h3>Design the system for an agent, not just humans</h3><p>Token names, bound variables, and the Figma-code contract are tightened so Claude can redline against the system by ID, not by visual approximation.</p></li>
+      <li><span class="lg-k">bet 03</span><h3>Every recurring failure becomes a skill</h3><p>When Claude makes the same mistake twice, write the skill that makes it unreachable. 17 skills, 17 classes of failure.</p></li>
+      <li><span class="lg-k">bet 04</span><h3>One source of truth per screen, structurally enforced</h3><p>The docs site imports Playground screens through a shared alias. Drift between demo and docs is structurally impossible.</p></li>
+      <li><span class="lg-k">bet 05</span><h3>The accuracy bar is the bound Figma variable, measured</h3><p>preview_eval reads the computed style. If it diverges from the bound variable, the component isn't done. The bar is what makes the agent loop possible.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head"><span class="n">05</span> reality check</div>
+    <div class="panel">
+      <div class="p-head">wave 1 proved the system works. adoption is the harder half.</div>
+      <p><strong>Each tool carries its own theme contract.</strong> The new components do not drop in. They reconcile against whatever theme the tool already binds to.</p>
+      <p><strong>Producing a screen is the easy part.</strong> Mockup time collapsed. Shipped-pixel time did not.</p>
+      <p><strong>This is a bridge, by design.</strong> When V2.0 lands, today's converged widgets are deprecated. UI Convergence buys months, not forever, and that is the deliberate trade.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="pager">
+    <a href="change-order.html">&lt;- change order</a>
+    <a href="marketing-studio.html">next: marketing studio -&gt;</a>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="wrap-wide">
+    <p>© 2026 raashi lathiya · bengaluru, india</p>
+  </div>
+</footer>
+
+</body>
+</html>

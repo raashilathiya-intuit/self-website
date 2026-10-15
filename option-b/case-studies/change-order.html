@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Order · Raashi Lathiya</title>
+<meta name="description" content="Designing the change-order flow for an agentic marketing platform. One edit, inferred consequences, a planned cascade, the human in control at every gate.">
+<link rel="stylesheet" href="../styles.css?v=3">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%239a3b2e%27/%3E%3Ctext x=%2732%27 y=%2746%27 font-family=%27Georgia,serif%27 font-size=%2738%27 fill=%27%23faf7f0%27 text-anchor=%27middle%27%3ER%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="inner">
+    <a href="../index.html" class="brand-name">Raashi Lathiya<span class="role">Product Designer</span></a>
+    <nav class="topnav">
+      <a href="../index.html">Index</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="cs-top">
+  <div class="wrap">
+    <div class="eyebrow">Agentic AI · Interaction Design · Intuit</div>
+    <h1>Change Order</h1>
+    <p class="lede">
+      A marketer changes one field on a live campaign. Behind that field sit
+      dozens of dependent artifacts that now have to change too. This is the flow
+      I designed for that moment: the agent works out what the edit touches,
+      proposes a plan, and moves through it one approved step at a time.
+    </p>
+    <div class="meta">
+      <div class="item"><span class="k">Role</span><span class="v">Interaction Design, Workflow Architecture</span></div>
+      <div class="item"><span class="k">Surface</span><span class="v">Marketing Studio, agentic edit flow</span></div>
+      <div class="item"><span class="k">Team</span><span class="v">Principal + Staff designer, PMs, engineering</span></div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="brief">
+      <div class="brief-label">In brief</div>
+      <ul>
+        <li><strong>The problem:</strong> editing a live campaign is never just the edit. One change invalidates dozens of downstream artifacts.</li>
+        <li><strong>What I designed:</strong> the flow where the agent infers the cascade, proposes an ordered plan, and executes it one approved gate at a time, with a from-to summary and a version to roll back to.</li>
+        <li><strong>The payoff:</strong> a two-field edit safely becomes sixty-four rebuilt experiences, and the person is never surprised.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap">
+    <div class="figure"><div><span class="cap">Hero visual, swap in later</span>Change Order, one edit and everything it touches</div></div>
+    <div class="stats">
+      <div class="s"><div class="sv">2 fields</div><div class="su">changed by hand</div><div class="sl">End date and priority, the only two things the marketer touches</div></div>
+      <div class="s"><div class="sv">64</div><div class="su">experiences rebuilt</div><div class="sl">Every downstream artifact those two fields invalidate, regenerated on approval</div></div>
+      <div class="s"><div class="sv">Every step</div><div class="su">gated</div><div class="sl">Nothing cascades without an explicit yes, with a version to roll back to</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-label">Where this comes from</div>
+    <h2 class="section-title">Create was linear. Change is consequential.</h2>
+    <div class="prose">
+      <p>I designed the create flow first. It was a sequence: prompt, then build, one stage at a time, forward. Change order is the harder half of the same product, and it does not move in a straight line. When a person edits a live campaign, the real problem is not the edit. It is everything the edit sets off.</p>
+      <p>A campaign here is not one object. It is a tree: experiments, treatments, segments, offers, and dozens of downstream experiences generated from the campaign's settings. Change the end date and the priority, and those experiences are no longer valid. Something has to notice that, plan the rebuild, and keep the person in control of work the system is redoing on their behalf. That is the design problem.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-label">The flow</div>
+    <h2 class="section-title">One conversation, from finding a campaign to changing it safely</h2>
+    <div class="prose">
+      <p>The whole thing happens in one thread. The conversation lives on the right, the live campaign on the left. The person never leaves to go do the work. They ask, they review, they approve.</p>
+    </div>
+    <ul class="runlist" style="margin-top:20px;">
+      <li><span class="m">Ask</span><p><strong>Find it in plain language.</strong> "Find all Payroll targeted-offer campaigns created in the last 3 months." The agent spins up a project and shows its work: reading the brief, searching, compiling. No query builder, no filters to learn.</p></li>
+      <li><span class="m">Results</span><p><strong>Get a real, workable table.</strong> Twenty-two campaigns come back as a sortable, paginated table, not a wall of chat text. The person opens one and sees its full structure: campaign meta, and the nested tree of experiments, treatments, segments, and offers.</p></li>
+      <li><span class="m">Request</span><p><strong>Ask for the change.</strong> "Change the end date to 31 August and priority to high." Two fields. The person is not thinking about the sixty-four downstream experiences those two fields invalidate. The system has to.</p></li>
+      <li><span class="m">Plan</span><p><strong>See the plan before anything moves.</strong> The agent reads the request and proposes an ordered plan: change the fields, review a summary, update the campaign. It asks "does this look ok?" before it touches anything.</p></li>
+      <li><span class="m">Execute</span><p><strong>Watch it happen, one gate at a time.</strong> Task one runs. The changed fields light up on the live artifact so the person can see exactly what moved. Then the agent pauses for approval before task two. Nothing cascades without a yes.</p></li>
+      <li><span class="m">Cascade</span><p><strong>The two-field edit becomes sixty-four rebuilt experiences.</strong> On approval, the agent regenerates every dependent experience and bumps the campaign from v1 to v2. The system understood what the two changes meant, and rebuilt everything downstream, with a version to fall back to.</p></li>
+    </ul>
+    <div class="figure-2" style="margin-top:32px;">
+      <div class="figure"><div><span class="cap">Screenshot</span>Search results as a real, sortable table</div></div>
+      <div class="figure"><div><span class="cap">Screenshot</span>A campaign opened: meta plus the nested tree</div></div>
+    </div>
+    <div class="figure"><div><span class="cap">Screenshot, the payoff</span>After approval: every downstream experience marked Edited, campaign bumped to v2</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-label">The core move</div>
+    <h2 class="section-title">Show the plan, then show the difference</h2>
+    <div class="prose">
+      <p>Two moments carry the trust. First, the agent commits to a plan out loud, in order, before it acts. Second, it shows the change as a plain before-and-after, so the person is never guessing what actually moved.</p>
+    </div>
+    <blockquote class="pull">
+      "I will change the fields, then show you a summary, then update the campaign. Does this look ok?"
+      <cite>The agent, before it touches anything</cite>
+    </blockquote>
+    <div class="figure-2" style="margin-top:28px;">
+      <div class="figure"><div><span class="cap">Screenshot</span>Plan proposed in the conversation, with the approval gate</div></div>
+      <div class="figure"><div><span class="cap">Screenshot</span>Changed fields highlighted on the live campaign</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-label">Decisions</div>
+    <h2 class="section-title">What I chose, and what it cost</h2>
+    <ul class="runlist">
+      <li><span class="m">01</span><p><strong>Plan first, act second.</strong> I gave up the speed of an instant edit to buy orientation. Before anything changes, the person sees the ordered plan and can stop it. For a change that cascades, being able to say no in advance matters more than saving a click.</p></li>
+      <li><span class="m">02</span><p><strong>Gate every step, not just the start.</strong> One approval up front would have been cleaner. But the cascade is where trust is won or lost, so I put a checkpoint at each task. The cost is more taps. The gain is that the person is never surprised by what the system did on their behalf.</p></li>
+      <li><span class="m">03</span><p><strong>Show the diff, not the whole object.</strong> The campaign has hundreds of fields. I chose a From-to-To summary that names exactly what moved, and highlighted those same fields on the live artifact so the two views agree.</p></li>
+      <li><span class="m">04</span><p><strong>Make the cascade visible, and reversible.</strong> Marking each regenerated experience Edited and bumping the version to v2 turns an invisible side effect into something the person can see and roll back. Consequence, made legible.</p></li>
+      <li><span class="m">05</span><p><strong>Keep results as artifacts, not chat.</strong> Search results are a real table with sort and pagination. The conversation drives the work, but the work itself stays a first-class object you can act on.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-label">Honest limits</div>
+    <h2 class="section-title">What this flow does not solve yet</h2>
+    <ul class="runlist">
+      <li><span class="m">+</span><p><strong>Partial cascades.</strong> Today the cascade is all-or-nothing on approval. A person might want to accept the metadata change but hold the experience regeneration. That branch is not designed yet.</p></li>
+      <li><span class="m">+</span><p><strong>Conflicting concurrent edits.</strong> The version bump gives a fallback, but two people changing the same campaign at once is not handled. The flow assumes a single editor.</p></li>
+      <li><span class="m">+</span><p><strong>Explaining why a change cascades.</strong> The person sees that sixty-four experiences changed. They cannot yet ask the agent why those specific ones. Making the dependency graph legible is the next problem worth solving.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-label">Reflection</div>
+    <div class="prose">
+      <p class="lead-para">The through-line in my work is caring about where things go after they are made, not just the screen where they are made. Change order is that idea in its purest form. The hard part was never the edit. It was designing the seam between a person's simple intent and a system's complicated consequences, so the person stays in control of a change they could not fully see, and trusts the system precisely because it showed them its plan first.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="pager">
+    <a href="../index.html">← Index</a>
+    <a href="ui-convergence.html">Next: UI Convergence →</a>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="wrap-wide">
+    <p>© 2026 Raashi Lathiya · Bengaluru, India</p>
+  </div>
+</footer>
+
+</body>
+</html>
